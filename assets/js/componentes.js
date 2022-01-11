@@ -23,10 +23,6 @@ const bloqueProducto = ({ img = '', nombre = '...', precio = '...' }) => {
     return compHtml
 };
 
-const grillaProductos = (arr) => {
-
-}
-
 export {
     bloqueProducto
 };
