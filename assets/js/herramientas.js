@@ -30,12 +30,22 @@ const spinner = (texto) => {
 };
 
 const buscaProductos = (arr,busc) => {
-    console.log(arr);
-    console.log(`Busca: ${busc}`);
+    let resultados = arr.map(prod => {
+        let coincide = false;
+        let palabras = prod.name.split(' ');
+        palabras.forEach((palabra) => {
+            let trozo = palabra.slice(0,busc.length).toLowerCase();
+            if (trozo == busc) { coincide = true }
+        });
+        if (coincide) { return prod }
+    })
+    resultados = resultados.filter(prod => prod)
+    return resultados
 };
 
 export {
     mayus,
+    mayusTodas,
     mayusTodasNombreProductos,
     spinner,
     buscaProductos

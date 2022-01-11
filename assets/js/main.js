@@ -1,6 +1,6 @@
 const url = 'https://bsale-test-api-psg.herokuapp.com/v1/';
 import { bloqueProducto, cargando } from './componentes.js';
-import { mayus, mayusTodasNombreProductos, spinner, buscaProductos } from './herramientas.js';
+import { mayus, mayusTodas, mayusTodasNombreProductos, spinner, buscaProductos } from './herramientas.js';
 
 let productos;
 
@@ -43,6 +43,30 @@ const listaProductos = (filtro,textoCarga) => {
     });
     return 1
 };
+
+const listaResultados = (arr) => {
+    const area = document.getElementById('resultados');
+    if (arr.length === 0) return
+    area.innerHTML = '';
+    arr.forEach((resultado) => {
+        area.innerHTML += `<a href="#" class="nav-link resultado">${mayusTodas(resultado.name)}</a>`;
+    });
+    document.querySelectorAll('.resultado').forEach((item) => {
+        item.addEventListener('click', (e) => {
+            let producto = e.target.innerHTML;
+            let enArray = productos.filter(p => p.name === producto)
+            mostrarLista(enArray);
+        })
+    });
+}
+
+document.getElementById('busqueda').addEventListener('keyup', (e) => {
+    let campo = e.target;
+    let buscando = e.target.value;
+    campo.setAttribute("value", buscando);
+    let encontrados = buscaProductos(productos,buscando);
+    listaResultados(encontrados)
+})
 
 // Carga inicial
 
