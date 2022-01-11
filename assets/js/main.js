@@ -1,6 +1,6 @@
 const url = 'https://bsale-test-api-psg.herokuapp.com/v1/';
 import { bloqueProducto, cargando } from './componentes.js';
-import { mayus, mayusTodas, mayusTodasNombreProductos, spinner, buscaProductos } from './herramientas.js';
+import { mayus, mayusTodas, mayusTodasNombreProductos, spinner, buscaProductos, resetBusqueda } from './herramientas.js';
 
 let productos;
 
@@ -76,5 +76,6 @@ getCat().then((r) => {
         let sel = e.target.value;
         if (sel === 'todo') sel = 'all';
         listaProductos(sel,'Filtrando...');
+        resetBusqueda();
     });
 });

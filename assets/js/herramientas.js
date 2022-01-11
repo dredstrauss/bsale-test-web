@@ -29,7 +29,16 @@ const spinner = (texto) => {
     document.getElementById('panel').innerHTML = cargando(texto);
 };
 
+const resetBusqueda = () => {
+    document.getElementById('busqueda').innerHTML = '';
+    document.getElementById('resultados').innerHTML = '';
+}
+
 const buscaProductos = (arr,busc) => {
+    if (busc.length < 1) {
+        resetBusqueda()
+        return []
+    }
     let resultados = arr.map(prod => {
         let coincide = false;
         let palabras = prod.name.split(' ');
@@ -40,6 +49,7 @@ const buscaProductos = (arr,busc) => {
         if (coincide) { return prod }
     })
     resultados = resultados.filter(prod => prod)
+    if (resultados.length > 10) { resultados.length = 10 }
     return resultados
 };
 
@@ -48,5 +58,6 @@ export {
     mayusTodas,
     mayusTodasNombreProductos,
     spinner,
-    buscaProductos
+    buscaProductos,
+    resetBusqueda
 }
