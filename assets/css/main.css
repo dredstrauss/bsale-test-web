@@ -1,5 +1,6 @@
 .tarjeta {
-    height: 20rem;
+    height: 23rem;
+    box-shadow: -0.3rem 0.3rem 0.5rem rgb(220,220,220);
 }
 
 .carrito {
