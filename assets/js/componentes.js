@@ -23,6 +23,17 @@ const bloqueProducto = ({ img = '', nombre = '...', precio = '...' }) => {
     return compHtml
 };
 
+const cargando = (texto) => {
+    const elemento = `
+        <div class="text-center text-muted my-5">
+            <div class="spinner-grow"></div>
+            <p class="mt-1">${texto}</p>
+        </div>
+    `;
+    return elemento
+};
+
 export {
-    bloqueProducto
+    bloqueProducto,
+    cargando
 };

@@ -1,7 +1,6 @@
 const url = 'https://bsale-test-api-psg.herokuapp.com/v1/';
-import { bloqueProducto } from './componentes.js';
-
-const mayus = (str) => { return str.trim().replace(/^\w/, (l) => l.toUpperCase()) };
+import { bloqueProducto, cargando } from './componentes.js';
+import { mayus, spinner } from './herramientas.js';
 
 const getData = async({ filtro = 'all' }) => {
     const response = await fetch(url + `${filtro}`);
@@ -20,7 +19,8 @@ const getCat = async() => {
     return 1
 };
 
-const listaProductos = (filtro) => {
+const listaProductos = (filtro,textoCarga) => {
+    spinner(textoCarga);
     getData({ filtro: filtro }).then(res => {
         const productos = res;
         document.getElementById('panel').innerHTML = '';
@@ -38,11 +38,13 @@ const listaProductos = (filtro) => {
     return 1
 };
 
+// Carga inicial
+
 getCat().then((r) => {
-    listaProductos('all');
+    listaProductos('all','Cargando...');
     document.getElementById('selector').addEventListener('change', (e) => {
         let sel = e.target.value;
         if (sel === 'todo') sel = 'all';
-        listaProductos(sel);
+        listaProductos(sel,'Filtrando...');
     });
-})
+});
