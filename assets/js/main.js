@@ -66,6 +66,11 @@ document.getElementById('busqueda').addEventListener('keyup', (e) => {
     campo.setAttribute("value", buscando);
     let encontrados = buscaProductos(productos,buscando);
     listaResultados(encontrados)
+    if (e.key === 'Enter') {
+        if (encontrados.length > 0) {
+            mostrarLista(encontrados)
+        }
+    }
 })
 
 // Carga inicial
