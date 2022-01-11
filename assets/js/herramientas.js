@@ -13,13 +13,17 @@ const mayusTodas = (str) => {
     return palabras.join(' ')
 };
 
-const mayusTodasNombreProductos = (arr) => {
+const mayusTodasNombreProductos = (arr,mayus) => {
     let resultado = arr;
     resultado.forEach((prod) => {
-        prod.name = mayusTodas(prod.name)
+        if (mayus) {
+            prod.name = mayusTodas(prod.name);
+        } else {
+            prod.name = prod.name.toLowerCase();
+        }
     });
     return resultado
-}
+};
 
 const spinner = (texto) => {
     document.getElementById('panel').innerHTML = cargando(texto);

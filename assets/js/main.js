@@ -7,7 +7,7 @@ let productos;
 const getData = async({ filtro = 'all' }) => {
     const response = await fetch(url + `${filtro}`);
     const data = await response.json();
-    return mayusTodasNombreProductos(data)
+    return mayusTodasNombreProductos(data,false)
 };
 
 const getCat = async() => {
@@ -23,6 +23,7 @@ const getCat = async() => {
 
 const mostrarLista = (arr) => {
     document.getElementById('panel').innerHTML = '';
+    arr = mayusTodasNombreProductos(arr,true);
     arr.forEach((prod) => {
         const info = {
             img: prod.img,
