@@ -3,7 +3,7 @@ const bloqueProducto = ({ img = '', nombre = '...', precio = '...' }) => {
     const compHtml = `
         <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
             <div class="card tarjeta  container-fluid my-3 pt-3">
-                <img src="${img}" class="card-img-top text-center pt-3" alt="${nombre}" />
+                <img src="${img}" class="card-img-top img-fluid text-center pt-3" alt="${nombre}" />
                 <div class="card-body d-flex align-items-end">
                     <div class="d-flex flex-column">
                         <p class="card-title fw-bold">${nombre}</p>
