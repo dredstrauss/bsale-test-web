@@ -1,4 +1,4 @@
-const url = 'http://localhost:3000/v1/';
+const url = 'https://bsale-test-api-psg.herokuapp.com/v1/';
 import { bloqueProducto } from './componentes.js';
 
 const mayus = (str) => { return str.trim().replace(/^\w/, (l) => l.toUpperCase()) };
