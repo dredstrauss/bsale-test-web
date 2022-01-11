@@ -1,11 +1,13 @@
 const url = 'https://bsale-test-api-psg.herokuapp.com/v1/';
 import { bloqueProducto, cargando } from './componentes.js';
-import { mayus, spinner } from './herramientas.js';
+import { mayus, mayusTodasNombreProductos, spinner, buscaProductos } from './herramientas.js';
+
+let productos;
 
 const getData = async({ filtro = 'all' }) => {
     const response = await fetch(url + `${filtro}`);
     const data = await response.json();
-    return data
+    return mayusTodasNombreProductos(data)
 };
 
 const getCat = async() => {
@@ -19,22 +21,25 @@ const getCat = async() => {
     return 1
 };
 
+const mostrarLista = (arr) => {
+    document.getElementById('panel').innerHTML = '';
+    arr.forEach((prod) => {
+        const info = {
+            img: prod.img,
+            nombre: prod.name,
+            precio: prod.price
+        };
+        const prodHtml = bloqueProducto(info);
+        document.getElementById('panel').innerHTML += prodHtml;
+    });
+};
+
 const listaProductos = (filtro,textoCarga) => {
     spinner(textoCarga);
     getData({ filtro: filtro }).then(res => {
-        const productos = res;
-        document.getElementById('panel').innerHTML = '';
-        productos.forEach((prod) => {
-            const info = {
-                img: prod.img,
-                nombre: prod.name,
-                precio: prod.price
-            };
-            const prodHtml = bloqueProducto(info);
-            document.getElementById('panel').innerHTML += prodHtml;
-        });
+        productos = res;
+        mostrarLista(productos);
     });
-
     return 1
 };
 
