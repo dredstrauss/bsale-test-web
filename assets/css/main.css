@@ -3,6 +3,10 @@
     box-shadow: -0.3rem 0.3rem 0.5rem rgb(220,220,220);
 }
 
+img {
+    max-height: 15rem;
+}
+
 .carrito {
     display: block;
     box-sizing: border-box;

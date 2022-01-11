@@ -2,8 +2,8 @@ const bloqueProducto = ({ img = '', nombre = '...', precio = '...' }) => {
     if (img == '' || img == null) img = '../assets/img/noimage.png';
     const compHtml = `
         <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3">
-            <div class="card tarjeta  container-fluid mb-4 pt-3">
-                <img src="${img}" class="card-img-top img-fluid text-center pt-3" alt="${nombre}" />
+            <div class="card tarjeta container-fluid mb-4 pt-3">
+                <img src="${img}" class="card-img-top text-center pt-3 img-fluid" alt="${nombre}" />
                 <div class="card-body d-flex align-items-end">
                     <div class="d-flex flex-column">
                         <p class="card-title fw-bold">${nombre}</p>
