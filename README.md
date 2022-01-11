@@ -55,6 +55,8 @@ Si el usuario cliquea uno de los resultados de búsqueda, se ejecuta el mismo pr
 
 Si el usuario borra toda la búsqueda, la función se interrumpe y se ejecuta la función encargada de limpiar la búsqueda (la misma que se ejecuta al cambiar de categoría).
 
+Esta función limita la cantidad de resultados a 10.
+
 ## Implementaciones opcionales descartadas
 
 Estas son funcionalidades que se podrían implementar, pero que se omitieron intencionalmente por plazo.
@@ -71,4 +73,8 @@ Usando un *slider* y un botón de confirmación, el valor del mismo se enviaría
 
 ### Destacar descuentos
 
-Una función podría reordenar el arreglo de productos ya disponible para poner los productos con mayor descuento en los primeros lugares (siendo "mayor descuento" el cálculo del precio final, para apuntar a los precios que más bajan su precio). Y en la función que genera el bloque de un producto, se enviaría un parámetro opcional, que de ser verdadero, de un distintivo visual al producto (ej.: color del borde).
+Una función podría reordenar el arreglo de productos ya disponible para poner los productos con mayor descuento en los primeros lugares (siendo "mayor descuento" el cálculo del precio final, para apuntar a los productos que más bajan su precio en total). Y en la función que genera el bloque de un producto, se enviaría un parámetro opcional, que de ser verdadero, de un distintivo visual al producto (ej.: color del borde).
+
+### Cantidad de resultados según el espacio disponible
+
+Los resultados de búsqueda están arbitrariamente limitados a 10, pero podría calcularse la cantidad según la cantidad de productos desplegados. De esta forma, si la búsqueda arrojara muchos resultados, estos aprovecharían todo el espacio disponible sin sobrepasar el espacio generado por los productos desplegados. De todas formas se mantendría un mínimo según el alto del *viewport*, en caso de que se esté desplegando menos productos que el espacio disponible según lo que vea el usuario.
