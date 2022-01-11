@@ -24,17 +24,6 @@
                     <span class="navbar-toggler"></span>
                 </button>
 
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
-                        <li>
-                            <div class="form-floating">
-                                <select class="form-select" id="selector">
-                                </select>
-                                <label for="floatingSelect">Categorías:</label>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
             </div>
         </nav>
     </header>
@@ -47,10 +36,22 @@
         <hr class="container">
 
         <section class="my-5 container-fluid">
-            <div class="row" id="panel">
-                <div class="text-center text-muted my-5">
-                    <div class="spinner-grow"></div>
-                    <p class="mt-1">Cargando...</p>
+            <div class="row">
+                <div class="col-12 col-md-3">
+                    <h4>Personaliza tu búsqueda:</h4>
+                    <div class="form-floating">
+                        <select class="form-select" id="selector">
+                        </select>
+                        <label for="floatingSelect">Categorías:</label>
+                    </div>
+                </div>
+                <div class="col-12 col-md-9">
+                    <div class="row" id="panel">
+                        <div class="text-center text-muted my-5">
+                            <div class="spinner-grow"></div>
+                            <p class="mt-1">Cargando...</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
