@@ -41,7 +41,8 @@ const listaProductos = (filtro) => {
 getCat().then((r) => {
     listaProductos('all');
     document.getElementById('selector').addEventListener('change', (e) => {
-        const sel = e.target.value;
+        let sel = e.target.value;
+        if (sel === 'todo') sel = 'all';
         listaProductos(sel);
     });
 
