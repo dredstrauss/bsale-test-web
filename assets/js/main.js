@@ -45,11 +45,4 @@ getCat().then((r) => {
         if (sel === 'todo') sel = 'all';
         listaProductos(sel);
     });
-
-    // document.querySelectorAll('.selectorCategoria').forEach((op) => {
-    //     console.log(op);
-    //     op.addEventListener('click', (e) => {
-    //         console.log('Tin!');
-    //     })
-    // });
 })
